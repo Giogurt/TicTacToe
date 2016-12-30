@@ -24,6 +24,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_crux</font>
+    <font>fonts\fnt_turn</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_game</object>

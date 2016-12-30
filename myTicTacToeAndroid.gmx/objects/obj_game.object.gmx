@@ -201,14 +201,16 @@ draw_set_alpha(1);
 draw_set_color(c_black);
 
 draw_set_halign(fa_left);
-draw_text(2, 5, "Player 1");
+draw_text(2, 5, "Player 1#Circle");
 
 draw_set_halign(fa_right);
-draw_text(width-2, 5, "Player 2");
+draw_text(width-2, 5, "Player 2#Cross");
 
 draw_set_halign(fa_middle);
-draw_text(width/2, 5, "Player 3")
-draw_text(width/2, 20, "Turn: "+turn);
+draw_text(width/2, 5, "Player 3#Triangle");
+
+draw_set_font(fnt_turn);
+draw_text(width/2, 45, "Turn: "+turn);
 </string>
           </argument>
         </arguments>
@@ -232,7 +234,7 @@ draw_text(width/2, 20, "Turn: "+turn);
             <string>///Winner screen
 
 var width = room_width;
-/*draw_set_font(fnt_crux);
+/*draw_set_font(fnt_turn);
 draw_set_alpha(1);
 draw_set_color(c_black);
 draw_set_halign(fa_middle);*/
@@ -240,16 +242,16 @@ draw_set_halign(fa_middle);*/
 if (game_over) {
     switch(winner) {
         case NOTHING:
-            draw_text(width/2, cell/2, "IT'S A TIE!"); 
+            draw_text(width/2, cell/2 + 20, "IT'S A TIE!"); 
             break;
         case CIRCLE: 
-            draw_text(width/2, cell/2, "PLAYER 1 WINS!"); 
+            draw_text(width/2, cell/2 + 20, "PLAYER 1 WINS!"); 
             break;
         case CROSS: 
-            draw_text(width/2, cell/2, "PLAYER 2 WINS!"); 
+            draw_text(width/2, cell/2 + 20, "PLAYER 2 WINS!"); 
             break;
         case TRIANGLE:
-            draw_text(width/2, cell/2, "PLAYER 3 WINS!"); 
+            draw_text(width/2, cell/2 + 20, "PLAYER 3 WINS!"); 
             break;
     }
 }
