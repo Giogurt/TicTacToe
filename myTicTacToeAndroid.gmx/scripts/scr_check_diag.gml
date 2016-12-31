@@ -22,9 +22,3 @@ for (var row=0; row<(ds_grid_height(grid)-2); row++) {
         
     }
 }
-
-/*if (grid[# 0, cgrid-1] == char || (grid[# 3, 0] == char)) {
-    if (grid[# 1, cgrid-2] == char and (grid[# 2, cgrid-3] == char)) {
-        return true;
-    }
-}
