@@ -48,6 +48,30 @@ player = vplayer;
 cell = vcell;
 game_over = false;
 winner = noone;  //this means there is no winner
+event_text = ""; //frenzy mode
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_text = "";
 </string>
           </argument>
         </arguments>
@@ -106,6 +130,7 @@ if (game_over == false) {
         if (grid[# xx, yy] == NOTHING || grid[# xx, yy] == 3) {
             grid[# xx, yy] = player;
             scr_check_winner();
+            //This event is only to run the random event on frenzy mode
             if (global.game == 3) {
                 scr_random_event();
             }
@@ -168,7 +193,7 @@ for (var row=0; row&lt;ds_grid_width(grid); row++) {
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>obj_game</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -199,6 +224,12 @@ draw_text(width/2, 5, "Player 3#Triangle");
 
 draw_set_font(fnt_turn);
 draw_text(width/2, 45, "Turn: "+turn);
+
+if (!game_over) {
+    fade = alarm[1]/(room_speed*2);
+    draw_text_colour(width/2, cell*5.5, event_text, c_black, c_black, c_black, c_black, fade);
+}
+
 </string>
           </argument>
         </arguments>
