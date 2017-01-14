@@ -102,30 +102,15 @@ yy = (mouse_y - cell) div cell;
 in_grid = false;
 
 if (game_over == false) {
-//This condition prevents the game from creating a char below the grid
-    if (xx &lt; cgrid) {
-        if (grid[# xx, yy] == NOTHING) {
+    if (xx &lt; cgrid) { //This condition prevents the game from creating a char below the grid
+        if (grid[# xx, yy] == NOTHING || grid[# xx, yy] == 3) {
             grid[# xx, yy] = player;
             scr_check_winner();
+            if (global.game == 3) {
+                scr_random_event();
+            }
             /*The next code analizes which game is being played and gives the next
             turn to the respective player*/
-            if (global.game == 1) {
-                player = !player;
-            } else {
-                if (player == 2) {player = -1;}
-                player++
-            }   
-        }
-    }
-}
-
-/*if (game_over == false) {
-    if (global.game == 1 || xx &lt; 4) {    //the xx condition prevents the game from 
-        if (grid[# xx, yy] == NOTHING) { //creating a char below the 4x4 grid
-            grid[# xx, yy] = player;
-            scr_check_winner();
-            The next code analizes which game is being played and gives the next
-            turn to the respective player
             if (global.game == 1) {
                 player = !player;
             } else {
@@ -164,6 +149,9 @@ for (var row=0; row&lt;ds_grid_width(grid); row++) {
         
         var subimage = grid[# row, col];
         draw_sprite_ext(spr_char, subimage, row*cell, (col*cell)+cell, scale, scale, 0, c_white, 1);
+        if (subimage == 3){
+            grid[# row, col] = -1;
+        }
     }
 }
 </string>

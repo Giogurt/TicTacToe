@@ -16,6 +16,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_check_winner.gml</script>
+    <script>scripts\scr_random_event.gml</script>
     <scripts name="Grid Check">
       <script>scripts\scr_check_row.gml</script>
       <script>scripts\scr_check_col.gml</script>
